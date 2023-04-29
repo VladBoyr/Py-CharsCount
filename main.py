@@ -14,5 +14,5 @@ if __name__ == '__main__':
     text = []
     for file_path in get_files(path='.', pattern='*.txt'):
         with open(file_path, "r") as text_file:
-            text.append(list(text_file.read()))
+            text.extend(list(text_file.read()))
     print(pd.Series(text).value_counts())
