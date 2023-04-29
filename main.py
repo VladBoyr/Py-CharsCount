@@ -15,4 +15,6 @@ if __name__ == '__main__':
     for file_path in get_files(path='.', pattern='*.txt'):
         with open(file_path, "r") as text_file:
             text.extend(list(text_file.read()))
-    print(pd.Series(text).value_counts())
+    chars_count = pd.Series(text).value_counts().to_dict()
+    with open('./chars_count.txt', "w") as text_file:
+        text_file.write(str(chars_count))
